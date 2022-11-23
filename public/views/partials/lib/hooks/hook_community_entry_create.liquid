@@ -1,0 +1,14 @@
+{%- comment -%}
+  Implements hook_community_entry_create.
+{%- endcomment -%}
+
+{% liquid
+  if params.created_entry.entry_type != 'post'
+    return nil
+  endif
+
+  function post = 'modules/community-entry-post/lib/commands/post/create', entry_id: params.created_entry.id, content: params.entry_payload.content
+  assign result = '{}' | parse_json | hash_merge: post: post
+
+  return result
+%}
