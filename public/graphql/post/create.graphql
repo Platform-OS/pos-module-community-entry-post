@@ -1,7 +1,7 @@
 mutation ($entry_id: String!, $content: String!) {
   post: model_create(
     model: {
-      model_schema_name: "modules/community_entry_post/post"
+      model_schema_name: "modules/community-entry-post/post"
       properties: [
         { name: "entry_id", value: $entry_id }
         { name: "content", value: $content }

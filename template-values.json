@@ -1,6 +1,6 @@
 {
-  "name": "Module Name",
-  "machine_name": "module-name",
+  "name": "Community Entry Post",
+  "machine_name": "community-entry-post",
   "type": "module",
   "version": "0.0.0",
   "dependencies": {

@@ -1,20 +1,20 @@
 {
-  "name": "MODULE_NAME",
+  "name": "community-entry-post",
   "version": "0.0.0",
   "description": "Module description",
   "scripts": {
-    "version": "(cd ../../ && pos-cli modules version MODULE_NAME -p) && git add template-values.json && auto-changelog -p && git add CHANGELOG.md"
+    "version": "(cd ../../ && pos-cli modules version community-entry-post -p) && git add template-values.json && auto-changelog -p && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Platform-OS/pos-module-MODULE_NAME.git"
+    "url": "git+https://github.com/Platform-OS/pos-module-community-entry-post.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Platform-OS/pos-module-MODULE_NAME/issues"
+    "url": "https://github.com/Platform-OS/pos-module-community-entry-post/issues"
   },
-  "homepage": "https://github.com/Platform-OS/pos-module-MODULE_NAME#readme",
+  "homepage": "https://github.com/Platform-OS/pos-module-community-entry-post#readme",
   "devDependencies": {
     "auto-changelog": "^2.4.0"
   },
