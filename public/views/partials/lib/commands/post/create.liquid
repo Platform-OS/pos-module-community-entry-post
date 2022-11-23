@@ -1,0 +1,23 @@
+{%- comment -%}
+  Creates a post entry.
+
+  Params:
+    - entry_id: String
+    - content: String
+{%- endcomment -%}
+{% liquid
+  function object = 'modules/community_entry_post/lib/commands/post/create/build', entry_id: entry_id, content: content
+  function object = 'modules/community_entry_post/lib/commands/post/create/check', object: object
+
+  if object.valid
+    graphql post = 'modules/community_entry_post/post/create', args: object
+    if post.post.id
+      hash_assign object['created_post'] = post.post
+    else
+      hash_assign object['valid'] = false
+      hash_assign object['errors'] = post.errors
+    endif
+  endif
+
+  return object
+%}

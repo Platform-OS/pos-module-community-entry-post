@@ -1,0 +1,4 @@
+name: post
+properties:
+  - name: content
+  - name: entry_id

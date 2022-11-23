@@ -1,0 +1,8 @@
+{% parse_json object %}
+  {
+    "entry_id": {{ entry_id | json }},
+    "content": {{ content | json }}
+  }
+{% endparse_json %}
+
+{% return object %}
