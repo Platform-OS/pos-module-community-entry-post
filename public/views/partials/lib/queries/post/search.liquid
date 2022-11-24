@@ -1,0 +1,22 @@
+{% comment %}
+  Collect posts.
+
+  Params:
+    - current_page: int (optional)
+      default: 1
+    - per_page: int (optional)
+      default: 20
+    - entry_id: string (optional)
+    - entry_ids: []string (optional)
+{% endcomment %}
+{% liquid
+  assign current_page = current_page | default: 1
+  assign per_page = per_page | default: 20
+
+  graphql posts = 'modules/community-entry-post/post/search', entry_id: entry_id, entry_ids: entry_ids, page: current_page, per_page: per_page
+  if posts.errors
+    return posts
+  endif
+
+  return posts.posts.results
+%}

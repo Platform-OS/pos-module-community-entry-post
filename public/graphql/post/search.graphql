@@ -1,0 +1,36 @@
+query (
+  $page: Int!
+  $per_page: Int!
+  $id: ID
+  $entry_id: String
+  $entry_ids: [String!]
+) {
+  posts: records(
+    page: $page
+    per_page: $per_page
+    filter: {
+      id: { value: $id }
+      table: { value: "modules/community-entry-post/post" }
+      properties: [
+        { name: "entry_id", value: $entry_id }
+        { name: "entry_id", value_in: $entry_ids }
+      ]
+    }
+  ) {
+    current_page
+    has_next_page
+    has_previous_page
+    per_page
+    total_entries
+    total_pages
+
+    results {
+      id
+      created_at
+      type: table
+
+      entry_id: property(name: "entry_id")
+      content: property(name: "content")
+    }
+  }
+}
