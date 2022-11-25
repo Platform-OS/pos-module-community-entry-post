@@ -1,0 +1,14 @@
+{%- comment -%}
+  Implements hook_community_entry_load.
+{%- endcomment -%}
+
+{% liquid
+  if params.entry.entry_type != 'post'
+    return nil
+  endif
+
+  function posts = 'modules/community-entry-post/lib/queries/post/search', entry_id: params.entry.id
+  assign result = '{}' | parse_json | hash_merge: entry: posts.first
+
+  return result
+%}
